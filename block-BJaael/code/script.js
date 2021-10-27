@@ -1,7 +1,15 @@
-let body = document.querySelector('body');
-let span = document.createElement('span');
-body.append(span);
 
+//!create element 
+let body = document.querySelector('body');
+let outerbox = document.createElement('div');
+
+//!give property to cover
+outerbox.style.display = "flex";
+outerbox.style.flexWrap = "wrap"
+body.append(outerbox);
+
+
+//!color changing function
 function color(){
     var x = Math.floor(Math.random() * 256);
     var y = Math.floor(Math.random() * 256);
@@ -10,37 +18,55 @@ function color(){
     return bgColor;
 }
 
-function randon(max){
+//!number changing function
+function random(max){
     var num = Math.floor(Math.random() * max);
     // var num = Math.floor(Math.random()*(length))
     return num;
 }
 
+
+//!loop to create multiple box 
 for ( let i = 0 ; i <= 500 ; i++ ){
-    let div = document.createElement('div');
-    div.style.backgroundColor = '#fff';
-    div.style.border = '6px solid black';
-    div.style.height = '4rem';
-    div.style.width = '4rem';
-    div.style.paddingTop = '22px'
-    div.style.textAlign = 'center';
-    div.innerText = randon(500);
-    span.append(div);
-    span.style.display = 'flex';
-    span.style.flexWrap = 'wrap';
-    body.style.backgroundColor = 'red';
+
+    //?create a div 
+    let box = document.createElement('div');
+
+    //?create a new class name "box"
+    box.className = "box" ;
+    // box.classList.add("box");
+
+    //?give CSS property to it
+    box.style.backgroundColor = '#fff';
+    box.style.height = '4rem';
+    box.style.width = '4rem';
+    box.style.border = '2px solid black';
     
+    //?create a h2 and give innerText property
+    let h2 = document.createElement("h2");
+    h2.innerText = random(500);
+    box.append(h2);
+    outerbox.append(box);
 }
 
+//!create a new variable name boxes
+let boxes = document.querySelectorAll(".box");
 
-function addAction(){
-    div.forEach((e)=>{
-    e.style.backgroundColor = color();
-    e.innerText  = randon(500);
-})
+
+//!function moveMouse use forEach take element 
+function moveMouse(){
+    boxes.forEach((elem) => {
+        elem.style.backgroundColor = color();
+        elem.children[0].innerText = random(500);
+    })
 }
-div.addEventListener('mousemove',addAction);
+
+//! final Execution of function threw addEventListener
+outerbox.addEventListener("mousemove", moveMouse);
 
 
 // var randomNumber = Math.floor(Math.random()*(quotes.length));
 // document.getElementById(‘quote’).innerHTML=quotes[randomNumber]; 
+
+
+
