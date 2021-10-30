@@ -12,6 +12,8 @@ let second = document.querySelector('.second');
 
 first.addEventListener("click",clickChange);
 
+
+// change color
 function clickChange() {
     var x = Math.floor(Math.random() * 256);
     var y = Math.floor(Math.random() * 256);
@@ -23,6 +25,7 @@ function clickChange() {
 
   second.addEventListener("mousemove",hoverChange);
 
+// for hover
   function hoverChange() {
       var x = Math.floor(Math.random() * 256);
       var y = Math.floor(Math.random() * 256);
