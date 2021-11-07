@@ -21,7 +21,9 @@ input.style.height = "60px"
 
 input.style.fontSize = "20px"
 
-input.style.fontWeight = "200"
+input.style.fontWeight = "100"
+
+input.style.textAlign = "center"
 
 let btn = document.querySelectorAll("button");
 
@@ -32,3 +34,30 @@ btn.forEach((b)=>{
 })
 
 
+let todo = [];
+
+//Selectors
+let form = document.querySelector("form");
+
+form.addEventListener('submit',handelSumbit);
+
+function handelSubmit(event){
+    event.preventDefault();
+        if ( input.value != "" )
+        addTodo(input.value);
+    input.value = ';';
+}
+
+function addTodo(todo){
+    let ul = document.querySelector('.ul');
+    let li = document.querySelector('li');
+
+    li.innerHTML = `
+    <button name="checkButton"><i class="fas fa-trash"></i></button>
+    <span class="todo-item">${todo}</span>
+    <button name="delete"><i class="fas fa-trash"></i></button>
+    `;
+
+    li.classList.add('todo-list-item');
+    ul.appendChild('li')
+}
