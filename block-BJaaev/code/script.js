@@ -31,33 +31,74 @@ btn.forEach((b)=>{
     b.style.height = "30px"
     b.style.width = "100px"
     b.style.margin = "10px"
+});
+
+
+
+
+//Selectors
+let list = document.querySelector('ul');
+
+let form = document.querySelector("form");
+
+form.addEventListener("submit",function(e){
+        e.preventDefault();
+        const value = form.querySelector('input[type="Text"]').value;
+        
+        //create element
+        let li = document.createElement('li');
+        let activity = document.createElement('span');
+        let deleteBtn = document.createElement('span');
+        deleteBtn.classList.add('delete')
+
+        //style
+        li.style.fontSize = '40px';
+        li.style.margin = '0 390px'
+        li.style.display = 'flex'
+        li.style.justifyContent = 'space-between'
+        
+        
+        //add Content
+        deleteBtn.textContent = 'delete';
+        activity.textContent = value;
+
+
+        li.appendChild(activity);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+})
+
+list.addEventListener('click',function(ev){
+        if(ev.target.className = 'delete'){
+            let l1 = ev.target.parentElement;
+            console.log(ev);
+            l1.parentNode.removeChild(l1)
+            // list.removeChild(l1);
+        }
+
 })
 
 
-let todo = [];
 
-//Selectors
-let form = document.querySelector("form");
+// form.addEventListener('submit',handelSumbit);
 
-form.addEventListener('submit',handelSumbit);
+// function handelSubmit(event){
+//     event.preventDefault();
+//         if ( input.value != "" )
+//         addTodo(input.value);
+//     input.value = ';';
+// }
 
-function handelSubmit(event){
-    event.preventDefault();
-        if ( input.value != "" )
-        addTodo(input.value);
-    input.value = ';';
-}
+// function addTodo(todo){
+//     let ul = document.querySelector('.ul');
+//     let li = document.querySelector('li');
 
-function addTodo(todo){
-    let ul = document.querySelector('.ul');
-    let li = document.querySelector('li');
+//     li.innerHTML = `
+//     <button name="checkButton"><i class="fas fa-trash"></i></button>
+//     <span class="todo-item">${todo}</span>
+//     <button name="delete"><i class="fas fa-trash"></i></button>
+//     `;
 
-    li.innerHTML = `
-    <button name="checkButton"><i class="fas fa-trash"></i></button>
-    <span class="todo-item">${todo}</span>
-    <button name="delete"><i class="fas fa-trash"></i></button>
-    `;
-
-    li.classList.add('todo-list-item');
-    ul.appendChild('li')
-}
+//     li.classList.add('todo-list-item');
+//     ul.appendChild('li')
+// }
