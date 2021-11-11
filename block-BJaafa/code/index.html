@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="wrapper">
+	    <header>
+	    	<div id="page-banner">
+	    		<h1 class="title">Daily Activity</h1>
+          <p>write your daily activity</p>
+          <form id="search-books">
+            <input type="text" placeholder="search for your daily activity..." />
+          </form>
+	    	</div>
+	    </header>
+	    <div id="book-list">
+	    	<h2 class="title">Daily Task</h2>
+	    	<ul>
+	    		<li>
+	    			<span class="name">complelete the Daily Todos  </span>
+	    			<span class="delete">delete</span>
+	    		</li>
+	    	</ul>
+	    </div>
+	    <form id="add-book">
+        <input type="checkbox" id="hide" />
+        <label for="hide">Hide all activity</label>
+	    	<input type="text" placeholder="write down your daily task..." />
+	    	<button>Add</button>
+	    </form>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
