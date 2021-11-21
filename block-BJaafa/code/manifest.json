@@ -1,10 +1,9 @@
 {
-    "name":"daliy avtivity",
-    "description": "daily todos",
+    "name": "Key Code",
+    "description": "It give keyCode of key pressed",
     "version": "1.0.0",
     "manifest_version": 2,
     "chrome_url_overrides": {
-        "newTab":"index.html"
+        "newtab": "index.html"
     }
-
 }
