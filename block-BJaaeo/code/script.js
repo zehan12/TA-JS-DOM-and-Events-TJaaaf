@@ -1,4 +1,4 @@
-function main(){
+(function(){
 
     let result = document.querySelector('.result')
     let allBoxes = document.querySelectorAll('.box')
@@ -35,4 +35,4 @@ function main(){
     }
     
     }
-    main();
+    )();
